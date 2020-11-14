@@ -1,0 +1,15 @@
+<h1>Spendings shared to me from <strong> <%= @from_user.username %> </strong>:</h1>
+<hr>
+<% if @spending %>
+  <% total = 0 %>
+  <%= @spending.each do |item| %>
+    <h2>Description: <%= item.description %> </h2>
+    <h2>Money: <%= item.money %> </h2>
+    <h2>Created: <%= item.created_at %> </h2>
+    <% total += item.money %>
+    <hr>
+  <% end %>
+  <h2>Total: <%= total %> </h2>
+<% else %>
+  <h2>List have no spendings</h2>
+<% end %>

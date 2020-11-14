@@ -1,0 +1,20 @@
+<h1>List: <strong>"<%= @list.title %>"</strong></h1>
+<h1>Category: <strong>"<%= @list.category %>"</strong></h1>
+<h1>Amount: <strong>"<%= @list.amount %>"</strong></h1>
+<hr>
+<% if @spending %>
+  <% total = 0 %>
+  <% @list.spendings.each do |sp| %>
+    <h2><%= sp.description %></h2>
+    <h2><%= sp.money %></h2>
+    <%= link_to "Edit", edit_list_spending_path(params[:id], sp.id), class: "btn btn-lg btn-warning"  %>
+    <%= link_to "Delete", list_spending_path(params[:id], sp.id), method: :delete, class: "btn btn-lg btn-danger"  %>
+    <% total += sp.money %>
+    <hr>
+  <% end %>
+  <h2>Total spendings: <%= total %></h2><br>
+
+<% else %>
+  <p>you have no spendings</p>
+<% end %>
+<%= link_to "Create", new_list_spending_path(params[:id]), class: "btn btn-lg btn-primary"  %>

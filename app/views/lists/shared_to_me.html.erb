@@ -1,0 +1,9 @@
+<h1>Shared to me lists</h1>
+<% if !@shared_lists.empty? %>
+  <%= @shared_lists.each do |item| %>
+    <h2>List: "<%= item.title %>"</h2>
+    <%= link_to "Show", shared_to_me_path+"/#{item.id}", class: "btn btn-lg btn-primary" %>
+  <% end %>
+<% else %>
+  <h3>There are no lists shared for you!</h3>
+<% end %>
