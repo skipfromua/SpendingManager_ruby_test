@@ -2,27 +2,27 @@ require 'test_helper'
 
 class ListsControllerTest < ActionDispatch::IntegrationTest
   test "should get show" do
-    get lists_show_url
+    get lists_url
     assert_response :success
   end
 
   test "should get new" do
-    get lists_new_url
+    get new_list_url
     assert_response :success
   end
 
   test "should get create" do
-    get lists_create_url
+    get lists_url
     assert_response :success
   end
 
   test "should get update" do
-    get lists_update_url
+    get list_url(:id => 1)
     assert_response :success
   end
 
   test "should get destroy" do
-    get lists_destroy_url
+    get list_url(:id => 1)
     assert_response :success
   end
 

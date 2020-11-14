@@ -2,12 +2,12 @@ require 'test_helper'
 
 class SpendingsControllerTest < ActionDispatch::IntegrationTest
   test "should get edit" do
-    get spendings_edit_url
+    get edit_list_spending_url(:list_id => 1, :id => 1)
     assert_response :success
   end
 
   test "should get new" do
-    get spendings_new_url
+    get new_list_spending_url(:list_id => 1, :id => 1)
     assert_response :success
   end
 
