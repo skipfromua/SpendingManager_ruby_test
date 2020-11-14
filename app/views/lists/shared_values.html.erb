@@ -2,7 +2,7 @@
 <hr>
 <% if @spending %>
   <% total = 0 %>
-  <%= @spending.each do |item| %>
+  <% @spending.each do |item| %>
     <h2>Description: <%= item.description %> </h2>
     <h2>Money: <%= item.money %> </h2>
     <h2>Created: <%= item.created_at %> </h2>
