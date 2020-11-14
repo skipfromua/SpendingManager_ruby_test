@@ -1,7 +1,21 @@
 class ListsController < ApplicationController
   def index
-    @list = List.where(user_id: session[:user_id])
     @users = User.where.not(id: session[:user_id])
+    if params[:category] and params[:amount]
+      if !params[:category].empty? && !params[:amount].empty?
+        @list = List.where(user_id: session[:user_id],
+                           category: params[:category],
+                           amount: params[:amount])
+      elsif !params[:category].empty?
+        @list = List.where(user_id: session[:user_id], category: params[:category])
+      elsif !params[:amount].empty?
+        @list = List.where(user_id: session[:user_id], amount: params[:amount])
+      else
+        @list = List.where(user_id: session[:user_id])
+      end
+    else
+      @list = List.where(user_id: session[:user_id])
+    end
   end
 
   def show

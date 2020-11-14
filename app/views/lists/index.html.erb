@@ -1,3 +1,10 @@
+<%= form_tag("/lists", method: "get") do %>
+  <%= label_tag  "Filter by category:" %> <br>
+  <%= text_field_tag :category %> <br>
+  <%= label_tag  "Filter by amount:" %> <br>
+  <%= number_field_tag :amount %><br>
+  <%= submit_tag("Filter") %>
+<% end %>
 <% if !@list.empty? %>
   <%= @list.each do |list_entry| %>
     <h1><%= list_entry.title %></h1>
