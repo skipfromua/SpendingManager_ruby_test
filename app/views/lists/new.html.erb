@@ -7,8 +7,7 @@
       <%= f.text_field :title, class: 'form-control'  %><br>
 
       <%= f.label :category %>
-      <%= f.text_field :category, class: 'form-control'  %><br>
-
+      <%= f.select :category, Taxi: 'Taxi', Traveling: 'Traveling', Clothing: 'Clothing', Cafes: 'Cafes', Shops: 'Shops', Other: 'Other'  %><br>
       <%= f.submit "Create list", class: "btn btn-primary" %>
     <% end %>
   </div>
